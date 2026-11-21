@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --css-dark: #1a1a1a;
+    --css-darker: #0d0d0d;
+    --css-panel: #232323;
+    --css-border: #3a3a3a;
+    --css-orange: #e87b1e;
+    --css-orange-light: #f29b3e;
+    --css-tan: #d4a85e;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    background: #0d0d0d;
+    color: #d8d8d8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Oswald', sans-serif;
+  }
+  .font-mono-cs {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* CS:Source diagonal stripe pattern */
+  .css-stripes {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(232, 123, 30, 0.03) 20px,
+      rgba(232, 123, 30, 0.03) 40px
+    );
+  }
+
+  .css-grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  }
+  .text-shadow-lg {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+  }
+
+  /* Scrollbar */
+  .css-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .css-scroll::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  .css-scroll::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 2px;
+  }
+  .css-scroll::-webkit-scrollbar-thumb:hover {
+    background: #e87b1e;
+  }
+
+  /* Case reel animation */
+  .reel-spinning {
+    transition: transform 6s cubic-bezier(0.12, 0.8, 0.18, 1);
+  }
+
+  /* Glow effects per rarity */
+  .glow-consumer { box-shadow: 0 0 20px rgba(176, 176, 176, 0.3); }
+  .glow-milspec { box-shadow: 0 0 20px rgba(100, 160, 220, 0.4); }
+  .glow-restricted { box-shadow: 0 0 20px rgba(80, 180, 220, 0.45); }
+  .glow-classified { box-shadow: 0 0 25px rgba(180, 100, 220, 0.5); }
+  .glow-covert { box-shadow: 0 0 30px rgba(220, 60, 60, 0.55); }
+  .glow-rare_special { box-shadow: 0 0 35px rgba(235, 180, 50, 0.6); }
+
+  .border-consumer { border-color: #b0b0b0; }
+  .border-milspec { border-color: #5e98d9; }
+  .border-restricted { border-color: #4b69ff; }
+  .border-classified { border-color: #8847ff; }
+  .border-covert { border-color: #eb4b4b; }
+  .border-rare_special { border-color: #caab05; }
+
+  .bg-rarity-consumer { background: linear-gradient(135deg, #b0b0b0 0%, #6a6a6a 100%); }
+  .bg-rarity-milspec { background: linear-gradient(135deg, #5e98d9 0%, #3a5a8a 100%); }
+  .bg-rarity-restricted { background: linear-gradient(135deg, #4b69ff 0%, #2a3a9a 100%); }
+  .bg-rarity-classified { background: linear-gradient(135deg, #8847ff 0%, #4a2a8a 100%); }
+  .bg-rarity-covert { background: linear-gradient(135deg, #eb4b4b 0%, #8a2a2a 100%); }
+  .bg-rarity-rare_special { background: linear-gradient(135deg, #caab05 0%, #7a6800 100%); }
+
+  .text-rarity-consumer { color: #b0b0b0; }
+  .text-rarity-milspec { color: #5e98d9; }
+  .text-rarity-restricted { color: #6b89ff; }
+  .text-rarity-classified { color: #a976ff; }
+  .text-rarity-covert { color: #eb4b4b; }
+  .text-rarity-rare_special { color: #ffd700; }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  .animate-pulse-glow {
+    animation: pulseGlow 1.5s ease-in-out infinite;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.18, 0.8, 0.3, 1);
+  }
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  .animate-float-up {
+    animation: floatUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  @keyframes spin-wheel {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(var(--wheel-rotation, 0deg)); }
+  }
+  @keyframes floatUp {
+    0% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -60px) scale(1.5); }
+  }
+}
